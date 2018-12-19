@@ -25,12 +25,14 @@ export default {
         {
           before:'../../static/footer/home01.png',
           selected:'../../static/footer/home02.png',
-          name:'首页'
+          name:'首页',
+            title:'首页'
         },
         {
           before:'../../static/footer/user01.png',
           selected:'../../static/footer/user02.png',
-          name:'我的'
+          name:'我的',
+            title:'我的信息'
         },
       ]
     }
@@ -45,7 +47,7 @@ export default {
           this.$router.push({ name: 'user'})
           break;
       }
-      this.$emit('getTitle', this.footerList[index].name)
+      this.$emit('getTitle', this.footerList[index].title)
       this.inds = index
 
     }

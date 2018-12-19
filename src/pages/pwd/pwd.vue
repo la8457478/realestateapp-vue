@@ -1,16 +1,16 @@
 <template>
-    <view class="content">
-        <view class="input-group">
-            <view class="input-row">
+    <div class="content">
+        <div class="input-group">
+            <div class="input-row">
                 <text class="title">邮箱：</text>
                 <input type="text" v-model="email" placeholder="请输入邮箱">
-            </view>
-        </view>
+            </div>
+        </div>
 
-        <view class="btn-row">
+        <div class="btn-row">
             <button type="primary" class="primary" @tap="findPassword">提交</button>
-        </view>
-    </view>
+        </div>
+    </div>
 </template>
 
 <script>

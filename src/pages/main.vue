@@ -39,9 +39,9 @@
                     showCancel: !this.forcedLogin,
                     success: (res) => {
                         if (res.confirm) {
-                            /**
-                             * 如果需要强制登录，使用reLaunch方式
-                             */
+							/**
+							 * 如果需要强制登录，使用reLaunch方式
+							 */
                             if (this.forcedLogin) {
                                 uni.reLaunch({
                                     url: '../login/login'

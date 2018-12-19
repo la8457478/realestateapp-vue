@@ -7,7 +7,10 @@ import global from './assets/js/global'
 import MuseUI from 'muse-ui';
 import store from './store/index';
 import 'muse-ui/dist/muse-ui.css';
-
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import Login from "./pages/login/login"
+Vue.use(ElementUI);
 Vue.use(MuseUI);
 Vue.config.productionTip = false
 Vue.prototype.global = global
@@ -18,7 +21,7 @@ if(global.isApp){
       el: '#app',
       router,
         store,
-      components: { App },
+      components: { App ,Login},
       template: '<App/>'
     })
   }
@@ -27,7 +30,7 @@ if(global.isApp){
     el: '#app',
     router,
       store,
-    components: { App },
+    components: { App,Login },
     template: '<App/>'
   })
 }

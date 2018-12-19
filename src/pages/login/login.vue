@@ -1,39 +1,51 @@
 <template>
-    <view class="content">
-        <view class="input-group">
-            <view class="input-row border">
-                <text class="title">账号：</text>
-                <input type="text" v-model="account" placeholder="请输入账号">
-            </view>
-            <view class="input-row">
-                <text class="title">密码：</text>
-                <input type="text" password="true" v-model="password" placeholder="请输入密码">
-            </view>
-        </view>
-        <view class="btn-row">
-            <button type="primary" class="primary" @tap="bindLogin">登录</button>
-        </view>
-        <view class="action-row">
-            <navigator url="../reg/reg">注册账号</navigator>
-            <text>|</text>
-            <navigator url="../pwd/pwd">忘记密码</navigator>
-        </view>
-        <view class="oauth-row" v-if="hasProvider" v-bind:style="{top: positionTop + 'px'}">
-            <view class="oauth-image" v-for="provider in providerList" :key="provider.value">
-                <image :src="provider.image" @tap="oauth(provider.value)"></image>
-            </view>
-        </view>
-    </view>
+
+    <mu-form>
+        <mu-text-field v-model="username" label="账号" label-float help-text="用户名为6-12长度的字符"
+                       icon="account_circle"></mu-text-field>
+        <br/>
+        <mu-text-field v-model="password" label="密码" label-float help-text="密码为6-12长度的字符" icon="locked"></mu-text-field>
+        <br/>
+        <!--<mu-form-item align="center">-->
+            <mu-button color="primary" align="center" @click="loginApp">登陆</mu-button>
+        <!--</mu-form-item>-->
+    </mu-form>
+    <!--<div class="content">-->
+    <!--<div class="input-group">-->
+    <!--<div class="input-row border">-->
+    <!--账号：-->
+
+    <!--</div>-->
+    <!--<div class="input-row">-->
+    <!--<text class="title">密码：</text>-->
+    <!--<el-input type="text" v-model="password" placeholder="请输入密码"></el-input>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="btn-row">-->
+    <!--<button type="primary" class="primary" @tap="bindLogin">登录</button>-->
+    <!--</div>-->
+    <!--<div class="action-row">-->
+    <!--<navigator url="../reg/reg">注册账号</navigator>-->
+    <!--<text>|</text>-->
+    <!--<navigator url="../pwd/pwd">忘记密码</navigator>-->
+    <!--</div>-->
+    <!--<div class="oauth-row" v-if="hasProvider" v-bind:style="{top: positionTop + 'px'}">-->
+    <!--<div class="oauth-image" v-for="provider in providerList" :key="provider.value">-->
+    <!--<image :src="provider.image" @tap="oauth(provider.value)"></image>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
 </template>
 
 <script>
-    import service from '../../service.js';
-    import {
-        mapState,
-        mapMutations
-    } from 'vuex'
+    import {mapMutations, mapState} from 'vuex'
+    import MuFormItem from "muse-ui/es5/Form/FormItem";
+    import MuButton from "muse-ui/es5/Button/Button";
 
     export default {
+        components: {
+            MuButton,
+            MuFormItem},
         data() {
             return {
                 providerList: [],
@@ -46,6 +58,9 @@
         computed: mapState(['forcedLogin']),
         methods: {
             ...mapMutations(['login']),
+            loginApp(){
+
+            },
             initProvider() {
                 const filters = ['weixin', 'qq', 'sinaweibo'];
                 uni.getProvider({

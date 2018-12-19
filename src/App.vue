@@ -27,7 +27,7 @@ export default {
   mounted:function () {
     if(this.global.isApp){
       this.apptabar()
-    }
+    }````````````````
   },
   methods:{
     refresh(){
@@ -113,26 +113,10 @@ export default {
               this.title = "首页"
               this.$router.push({ name: 'home'})
               break;
-            // case 1:
-            // this.title = "附近"
-            //   this.$router.push({ name: 'map'})
-            //   break;
-            // case 2:
-            //   this.title = "其他"
-            //   this.$router.push({ name: 'other'})
-            //   break;
-            // case 3:
-            // this.title = "组织"
-            //   this.$router.push({ name: 'team'})
-            //   break;
             case 1:
             this.title = "我的信息"
               this.$router.push({ name: 'user'})
               break;
-            // default:
-            // this.title = "我的"
-            //   this.$router.push({ name: 'home'})
-            //   break;
           }
       })
     }

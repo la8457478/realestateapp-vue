@@ -1,28 +1,43 @@
 <template>
-    <view class="content">
-        <view class="input-group">
-            <view class="input-row border">
-                <text class="title">账号：</text>
-                <input type="text" v-model="account" placeholder="请输入账号">
-            </view>
-            <view class="input-row border">
-                <text class="title">密码：</text>
-                <input type="text" password="true" v-model="password" placeholder="请输入密码">
-            </view>
-            <view class="input-row">
-                <text class="title">邮箱：</text>
-                <input type="text" v-model="email" placeholder="请输入邮箱">
-            </view>
-        </view>
-        <view class="btn-row">
-            <button type="primary" class="primary" @tap="register">注册</button>
-        </view>
-    </view>
+    <mu-form>
+        <mu-text-field v-model="username" label="账号" label-float help-text="用户名为6-12长度的字符"
+                       icon="account_circle"></mu-text-field>
+        <br/>
+        <mu-text-field v-model="password" label="密码" label-float help-text="密码为6-12长度的字符" icon="locked"></mu-text-field>
+        <br/>
+
+    </mu-form>
+    <!--<div class="content">-->
+    <!--<div class="input-group">-->
+    <!--<div class="input-row border">-->
+    <!--<text class="title">账号：</text>-->
+    <!--<input type="text" v-model="account" placeholder="请输入账号">-->
+    <!--</div>-->
+    <!--<div class="input-row border">-->
+    <!--<text class="title">密码：</text>-->
+    <!--<input type="text" password="true" v-model="password" placeholder="请输入密码">-->
+    <!--</div>-->
+    <!--<div class="input-row">-->
+    <!--<text class="title">邮箱：</text>-->
+    <!--<input type="text" v-model="email" placeholder="请输入邮箱">-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="btn-row">-->
+    <!--<button type="primary" class="primary" @tap="register">注册</button>-->
+    <!--</div>-->
+    <!--</div>-->
 </template>
 
 <script>
 
+    import MuForm from "muse-ui/es5/Form/Form";
+    import MuTextField from "muse-ui/es5/TextField/TextField";
+
     export default {
+        components: {
+            MuTextField,
+            MuForm
+        },
         data() {
             return {
                 account: '',
