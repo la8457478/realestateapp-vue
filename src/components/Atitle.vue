@@ -2,7 +2,7 @@
   <div id="title">
     <mu-appbar style="width: 100%;" color="primary">
   <mu-button icon slot="left">
-    <mu-icon value="menu"></mu-icon>
+    <mu-icon value="arrow_back"></mu-icon>
   </mu-button>
   {{Title}}
   <mu-menu slot="right">

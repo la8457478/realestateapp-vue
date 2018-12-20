@@ -2,9 +2,11 @@
     <div>
         <div></div>
         <table width="100%" height="100%">
+            <td align="center" width="100%">您好，您还未登录</td>
             <tr>
                 <td align="center" width="100%">
-                    <mu-button v-if="!hasLogin" @click="bindLogin" color="primary">登陆</mu-button>
+
+                    <mu-button v-if="!hasLogin" @click="bindLogin" color="primary" >登陆</mu-button>
                     <mu-button v-if="hasLogin" color="primary" @tap="bindLogout">退出登录</mu-button>
                 </td>
             </tr>
@@ -27,17 +29,11 @@
         },
         methods: {
             ...mapMutations(['logout']),
-            openVn() {
-                const h = this.$createElement;
-                this.$message({
-                    message: h('p', null, [
-                        h('span', null, '内容可以是 '),
-                        h('i', {style: 'color: teal'}, 'VNode')
-                    ])
-                });
-            },
             bindLogin() {
-                // this.$router.push({path: '/login/login?url=' + this.$route.path});
+                window.location.href='/login/login.html'
+                // this.$router.push({path: '/login/login'});
+                // this.$emit('getShow', false)
+
                 // window.location.href = "#/login/login";
                 // next({
                 //     path: '/login/login'

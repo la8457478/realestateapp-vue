@@ -6,14 +6,15 @@
     <router-view/>
   </mu-load-more>
   </mu-container>
-    <Afooter v-if="!this.global.isApp" @getTitle="getTitle"></Afooter>
+      <Afooter v-if="this.show" @getShow="getShow" @getTitle="getTitle"></Afooter>
   </div>
 </template>
 
 <script>
-import Atitle from '@/components/Atitle';
-import Afooter from '@/components/Afooter';
-export default {
+    import Atitle from '@/components/Atitle';
+    import Afooter from '@/components/Afooter';
+
+    export default {
   name: 'App',
   components:{
     Atitle,Afooter
@@ -21,11 +22,15 @@ export default {
   data(){
     return{
       refreshing: false,
-      title:"首页"
+        title: "首页",
+        show: true
     }
   },
   mounted:function () {
-    if(this.global.isApp){
+      if (this.hideFoot) {
+          hide = true;
+      }
+      if (this.global.isApp) {
       this.apptabar()
     }````````````````
   },
@@ -40,8 +45,12 @@ export default {
       }, 2000)
     },
     getTitle(title){
+
       this.title = title
     },
+      getShow(show) {
+          this.show = show;
+      },
     apptabar(){
       var NVTabBar = api.require('NVTabBar')
       NVTabBar.open({
